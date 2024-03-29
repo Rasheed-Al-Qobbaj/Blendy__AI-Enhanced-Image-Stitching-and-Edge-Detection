@@ -1,0 +1,45 @@
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: #1b264f; /* Light beige color */
+    color: #e6ffe6; /* Smooth black color for text */
+}
+
+/* Primary color for headers */
+h1, h2, h3, h4, h5, h6 {
+    color: #98FF98;
+}
+
+/* Accent color for links */
+a {
+    color: #1B264F;
+}
+
+/* Style for image display area */
+#imageDisplay {
+    border: 1px solid #1B264F;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+/* Style for result display area */
+#resultDisplay {
+    border: 1px solid #1B264F;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+/* Style for stitched image display area */
+#stitchedDisplay {
+    border: 1px solid #1B264F;
+    padding: 10px;
+}
+
+/* Style for kernel size slider */
+#kernelSlider {
+    width: 100%;
+}
+
+/* Style for file input */
+#imageUpload {
+    margin-bottom: 20px;
+}

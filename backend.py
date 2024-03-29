@@ -1,6 +1,10 @@
 import numpy as np
 import cv2
 import os
+from ultralytics import YOLO
+
+# Load YOLO model for human segmentation
+model = YOLO('yolov8n-seg.pt')
 
 # Image Selection and Stitching
 def select_images(Path):
@@ -51,6 +55,14 @@ def dog_edge_detection(image):
     print("Difference of Gaussians (DoG) edge detection complete!")
     return dog
 
+
+# Human Segmentation
+def human_segmentation(image):
+    result = model(image, conf=0.5, classes=[0])
+    for r in result:
+        r.save('result/human_seg.jpg')
+    print("Human segmentation complete!")
+
 if __name__ == '__main__':
     images = select_images('input_image/parrington')
     result = stitch_images(images)
@@ -58,9 +70,6 @@ if __name__ == '__main__':
         stitched = cv2.imread("result/stitch_result.jpg")
         canny_edge_detection(stitched)
         dog_edge_detection(stitched)
+        human_segmentation(stitched)
     else:
         print("Stitching failed! Status code: ", result)
-
-# Todo: 1- Implement AI human detection using YOLO
-# Todo: 2- Start designing the frontend and backend using fastapi
-# Todo: 3- Report the results

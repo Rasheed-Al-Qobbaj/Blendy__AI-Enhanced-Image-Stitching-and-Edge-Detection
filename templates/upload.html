@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blendy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Blendy</h1>
+    <p>Uploaded Images:</p>
+    {% for image in images %}
+        <img src="{{ url_for('static', filename='uploads/' + image.filename) }}">
+    {% endfor %}
+    <p>Stitched Image:</p>
+    <img src="{{ url_for('static', filename='result/stitch_result.jpg') }}">
+    <button onclick="location.href='{{ url_for('edge') }}'">Go to Edge Page</button>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
