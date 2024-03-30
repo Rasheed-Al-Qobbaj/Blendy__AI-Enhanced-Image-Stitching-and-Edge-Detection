@@ -9,10 +9,10 @@
 </head>
 <body>
     <h1>Blendy</h1>
-    <p>Select a group of images from your computer to stitch:</p>
+    <p>Select a group of images from your computer to stitch: (This might take a little please be patient)</p>
     <form action="{{ url_for('upload_images') }}" method="post" enctype="multipart/form-data">
         <input type="file" name="imageUpload" multiple accept="image/*">
-        <input type="submit" value="Upload">
+        <input type="submit" value="Upload" class="btn">
     </form>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>

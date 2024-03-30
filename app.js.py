@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, session
-from backend import stitch_images, canny_edge_detection, dog_edge_detection, human_segmentation
+from util import stitch_images, canny_edge_detection, dog_edge_detection, human_segmentation
 from werkzeug.utils import secure_filename
 import os
 import cv2

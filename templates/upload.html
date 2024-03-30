@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Blendy</title>
+    <title>Stitched Image</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
@@ -16,7 +16,7 @@
         {% endfor %}
         <p>Stitched Image:</p>
         <img src="{{ url_for('static', filename='result/stitch_result.jpg') }}">
-        <button onclick="location.href='{{ url_for('edge') }}'">Go to Edge Page</button>
+        <button onclick="location.href='{{ url_for('edge') }}'" class="btn">Go to Edge Page</button>
     {% else %}
         <p>{{ result }}</p>
         <p>Status Code: {{ status_code }}</p>
