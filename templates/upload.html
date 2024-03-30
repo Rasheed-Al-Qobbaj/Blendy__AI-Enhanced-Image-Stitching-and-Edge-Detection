@@ -9,13 +9,19 @@
 </head>
 <body>
     <h1>Blendy</h1>
-    <p>Uploaded Images:</p>
-    {% for image in images %}
-        <img src="{{ url_for('static', filename='uploads/' + image.filename) }}">
-    {% endfor %}
-    <p>Stitched Image:</p>
-    <img src="{{ url_for('static', filename='result/stitch_result.jpg') }}">
-    <button onclick="location.href='{{ url_for('edge') }}'">Go to Edge Page</button>
+    {% if result == 'Stitching successful!' %}
+        <p>Uploaded Images:</p>
+        {% for image in images %}
+        <img src="{{ url_for('static', filename='uploads/' + image) }}">
+        {% endfor %}
+        <p>Stitched Image:</p>
+        <img src="{{ url_for('static', filename='result/stitch_result.jpg') }}">
+        <button onclick="location.href='{{ url_for('edge') }}'">Go to Edge Page</button>
+    {% else %}
+        <p>{{ result }}</p>
+        <p>Status Code: {{ status_code }}</p>
+        <p>Explanation: {{ explanation }}</p>
+    {% endif %}
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
